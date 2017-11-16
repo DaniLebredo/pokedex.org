@@ -15,11 +15,4 @@ worker.addEventListener('error', (e) => {
   console.warn('worker threw an error', e.error);
 });
 
-// in Edge, the web worker can't learn its own origin
-// https://connect.microsoft.com/IE/feedback/details/2059173/
-worker.postMessage({
-  origin: window.location.origin,
-  type: 'origin'
-});
-
 module.exports = worker;
